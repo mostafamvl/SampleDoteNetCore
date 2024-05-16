@@ -1,0 +1,33 @@
+<h1 id="tableLabel">Requests</h1>
+<div class="row">
+  <div class="col-md-3">
+    From
+    <input type="date" class="form-control" (input)="onFromSearchChange($event.target.value)">
+  </div>
+  <div class="col-md-3">
+    To
+    <input type="date" class="form-control"  (input)="onToSearchChange($event.target.value)">
+  </div>
+
+
+</div>
+
+
+<p *ngIf="!requestObj"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="requestObj">
+  <thead>
+    <tr>
+      <th>Request Id</th>
+      <th>Mobile Number</th>
+      <th>Request Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let req of requestObj">
+      <td>{{ req.RequestId }}</td>
+      <td>{{ req.MobileNumber }}</td>
+      <td>{{ req.RequestDate }}</td>
+    </tr>
+  </tbody>
+</table>
